@@ -32,6 +32,15 @@
     Célunk egy ilyen program készítése amely képes képek alapján detektálni a rendszámtbálákat,
     és felismerni, és szöveg formájában visszaadni a rajta található rendszámot.
     \section{Létező hasonló megoldások}
+    Rendszámfelismerés témakörében végzett irodalomkutatás komoly megfontolást igényel, ugyanis rengeteg különböző eljárás, előírás és tanító adathalmazok miatt az eredmények teljesen nem hasonlíthatóak össze. Azonban napjainkban észrevehető egy bizonyos trend, amely a lépésről-lépésre történő, kaszkádos rendszámfelismerést támogatja.
+    Az leggyakrabban követett megoldás szerint három fázisra bontható a folyamat: \cite{laroca2018robust}
+    \begin{enumerate}
+        \item Gépjárműn található rendszám befoglaló téglalap pozíciójának meghatározása.
+        \item Rendszámon található karakterek szegmentációja.
+        \item Karakterek felismerése és sorrendbe helyezése.
+    \end{enumerate}
+    Ezen lépések során neurális hálókat alkalmaznak, melyek ú.n. “YOLO (You Only Look Once)” típusú konvolúciós neurális háló alapú objektum detektálásra akapozottak. A “YOLO” hálók több verziója is elérhető és elmondható, hogy a nem valósidejű alkalmazások esetén a YOLOv4, míg a valós idejű alkalmazásokban a Tiny YOLOv4 segítségével készített rendszámfelismerő alkalmazások bizonyultak a leghatékonyabbaknak. \cite{laroca2021efficient}
+    A fent említett konvolúciós neurális háló alapú detekciónak köszönhetően a detekciók pontossága meghaladja a 95\%-ot, gyakran azon felül teljesít. \cite{usama2022vehicle}
     \section{A megvalósítás lépései}
     \subsection{Előkészítés}
     \begin{itemize}
@@ -71,17 +80,16 @@
 
         Már napjainkban is számos területen alkalmazunk rendszámfelismerést valamint ehhez kötött szolgáltatásokat, adatfeldolgozást. Különösen a közigazgatásban kerül felhasználásra, ugyanakkor a közeljövőben a környezetvédelemben is egy jelentős eszközzé válhat.
         \subsection{Közigazgatási folyamatok}
-            A közigazgatás területén a rendszámfelismerés egy rendkívül fontos eszköz. Napjainkban számos szervezet alkalmazza ezen technológiát, gondoljunk csak az útdíjhasználat ellenőrzésére a világ számos országában (így többek között Magyarországon is). A technológia szolgálhat forgalom ellenőrzésére, rendőrségi eljárásokban autók nyomonkövetésére, kiszűrésére a forgalomból (ilyen a brit ANPR rendszer [HIVATKOZÁS 1], mely automatikusan szűri a biztrosítatlan illetve bűntényben résztvevő autókat egy központban), parkolókban a fizetés nyomonkövetésére illetve a járművek hatékonyabb be-és kiengedésében, továbbá behajtási jogosultság ellenőrzésére. Ezek mindegyike valamilyen módon segíti a közlekedés zökkenőmentességének fenntartását.
+            A közigazgatás területén a rendszámfelismerés egy rendkívül fontos eszköz. Napjainkban számos szervezet alkalmazza ezen technológiát, gondoljunk csak az útdíjhasználat ellenőrzésére a világ számos országában (így többek között Magyarországon is). A technológia szolgálhat forgalom ellenőrzésére, rendőrségi eljárásokban autók nyomonkövetésére, kiszűrésére a forgalomból (ilyen a brit ANPR rendszer \cite{police_uk}, mely automatikusan szűri a biztrosítatlan illetve bűntényben résztvevő autókat egy központban), parkolókban a fizetés nyomonkövetésére illetve a járművek hatékonyabb be-és kiengedésében, továbbá behajtási jogosultság ellenőrzésére. Ezek mindegyike valamilyen módon segíti a közlekedés zökkenőmentességének fenntartását.
 
         \subsection{Környezetvédelem}
             A feljebb leírtak mellett a rendszámfelismerésnek mint technológiának a környezetvédelemben is egyre fontosabb szerepe van. Napjainkban számos nagyváros hoz létre emissziómentes zónákat, melyekben vagy behajtási tilalom, vagy pedig behajtási díjak (Londonban például ún. ,,congestion charge'' azaz dugódíj) van érvényben a járművek egy adott csoportjára. Ennek ellenőrzése és automatizálása rendszámfelismerő technológia nélkül kivitelezhetetlen, a technológia segítségével azonban egy rendkívül pontos és megbízható rendszer építhető ki, ezáltal is csükkentve a lokális légszennyezést városokban.
 
     \section{Eredmények dokumentálása}
         A rendszámfelismerő rendszerünket python programozási nyelven, az eggyüttműködés gördülékenységének érdekében github-on fogjuk fejleszteni. A dokumentáció \LaTeX-ben kerül megírásra, mely github-on is elérhető lesz.
-
-    \section{Forrás}
-
-        HIVATKOZÁS 1:
-        https://www.police.uk/advice/advice-and-information/rs/road-safety/automatic-number-plate-recognition-anpr/
-
+    \newpage
+    \section{Források}
+    \bibliographystyle{abbrv}
+    \bibliography{ref.bib}
+        
 \end{document}
